@@ -11,7 +11,7 @@ QDrawMap::~QDrawMap() {
 QPixmap QDrawMap::paintMap(const QList<HI::QGravity*>& list, int width, int height) {
 	QPixmap map(width, height);
 
-	map.fill(HI::bg_color);
+	map.fill(Qt::transparent);
 
 	painter->begin(&map);
 
@@ -19,7 +19,7 @@ QPixmap QDrawMap::paintMap(const QList<HI::QGravity*>& list, int width, int heig
 	foreach (qg, list) {
 		HI::state st = qg->getState();
 		painter->setBrush(QBrush(st.color));
-		painter->drawEllipse(st.x, st.y, 4, 4);
+		painter->drawEllipse(st.x, st.y, HI::radius, HI::radius);
 	}
 
 	painter->end();

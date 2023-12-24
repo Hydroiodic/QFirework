@@ -1,6 +1,7 @@
 #pragma once
 
 #include "colors.h"
+#include "config.h"
 #include "QGravity.h"
 #include <QObject>
 #include <QPainter>

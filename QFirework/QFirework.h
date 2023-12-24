@@ -27,6 +27,13 @@ protected:
     void keyPressEvent(QKeyEvent* event) override;
 
 private:
+    void initializePainting();
+
+    QPixmap bg_map;
+    QPixmap text_map;
+    bool show_text = false;
+
+private:
     QTimer* timer = nullptr;
     QList<HI::QGravity*> list;
     void cleanList();

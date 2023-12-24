@@ -13,6 +13,9 @@ QFirework::QFirework(QWidget* parent) : QMainWindow(parent) {
 
 	// create painter
 	painter = new QPainter;
+
+	// initialize two pixmaps
+	initializePainting();
 }
 
 QFirework::~QFirework() {
@@ -27,10 +30,17 @@ void QFirework::paintEvent(QPaintEvent* event) {
 	// begin painting
 	painter->begin(this);
 
+	// paint the background
+	painter->drawPixmap(0, 0, bg_map);
+
+	if (show_text) {
+		painter->drawPixmap(0, 0, text_map);
+	}
+
 	// paint each pixmap on the main window
 	double opa = 1.;
 	for (QQueue<QPixmap>::iterator it = map_queue.end();
-		it-- != map_queue.begin(); opa -= 0.2) {
+		it-- != map_queue.begin(); opa -= 1. / MAX_MAPS) {
 		painter->setOpacity(opa);
 		painter->drawPixmap(0, 0, *it);
 	}
@@ -53,9 +63,31 @@ void QFirework::keyPressEvent(QKeyEvent* event) {
 		}
 		break;
 
+	case Qt::Key_T:
+		show_text = !show_text;
+		update();
+		break;
+
 	default:
 		QMainWindow::keyPressEvent(event);
 	}
+}
+
+void QFirework::initializePainting() {
+	bg_map = QPixmap(width(), height());
+	bg_map.fill(HI::bg_color);
+
+	text_map = QPixmap(width(), height());
+	text_map.fill(Qt::transparent);
+
+	painter->begin(&text_map);
+
+	painter->setFont(QFont("宋体", 50, QFont::Bold));
+	painter->setPen(Qt::yellow);
+	painter->drawText(0, 0, width(), height(), Qt::AlignCenter | Qt::AlignHCenter,
+		QString::fromLocal8Bit("新年快乐！"));
+
+	painter->end();
 }
 
 void QFirework::cleanList() {
