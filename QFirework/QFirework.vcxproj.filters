@@ -49,6 +49,9 @@
     <ClCompile Include="QDrawMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QSubFirework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QGravity.h">
@@ -58,6 +61,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QDrawMap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QSubFirework.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

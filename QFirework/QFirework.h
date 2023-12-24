@@ -4,7 +4,9 @@
 #include "QGravity.h"
 #include "QMainFirework.h"
 #include "ui_QFirework.h"
+#include <QKeyEvent>
 #include <QMainWindow>
+#include <QPainter>
 #include <QPixmap>
 #include <QQueue>
 #include <QTimer>
@@ -22,6 +24,7 @@ private:
 
 protected:
     void paintEvent(QPaintEvent* event) override;
+    void keyPressEvent(QKeyEvent* event) override;
 
 private:
     QTimer* timer = nullptr;
@@ -33,7 +36,11 @@ private:
     QQueue<QPixmap> map_queue;
     void requestMap();
 
-    const int MAX_MAPS = 5;
+    const int MAX_MAPS = 10;
+    QPainter* painter = nullptr;
+
+private:
+    int add_firework_cycle = 25;
 
 private slots:
     void proceed();

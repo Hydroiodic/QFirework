@@ -92,6 +92,7 @@
     <ClCompile Include="QDrawMap.cpp" />
     <ClCompile Include="QGravity.cpp" />
     <ClCompile Include="QMainFirework.cpp" />
+    <ClCompile Include="QSubFirework.cpp" />
     <QtRcc Include="QFirework.qrc" />
     <QtUic Include="QFirework.ui" />
     <QtMoc Include="QFirework.h" />
@@ -109,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="colors.h" />
+    <QtMoc Include="QSubFirework.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

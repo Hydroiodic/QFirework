@@ -1,8 +1,10 @@
 #pragma once
 
-#include <QObject>
-#include <QMainWindow>
+#include "colors.h"
 #include "QGravity.h"
+#include "QSubFirework.h"
+#include <QMainWindow>
+#include <QObject>
 
 class QMainFirework : public HI::QGravity
 {
@@ -17,5 +19,5 @@ protected:
 	void proceed(QList<HI::QGravity*>& list);
 
 public:
-	void explode();
+	void explode(QList<HI::QGravity*>& list);
 };

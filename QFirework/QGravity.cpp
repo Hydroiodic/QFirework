@@ -3,7 +3,7 @@
 namespace HI {
 	QGravity::QGravity(QObject* parent, const state& s) 
 		: QObject(parent), st(s) {
-		initializeState();
+		/* there's nothing to do here */
 	}
 
 	QGravity::~QGravity() {

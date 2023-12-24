@@ -8,8 +8,8 @@ QDrawMap::~QDrawMap() {
 	if (painter) delete painter;
 }
 
-QPixmap QDrawMap::paintMap(const QList<HI::QGravity*>& list) {
-	QPixmap map;
+QPixmap QDrawMap::paintMap(const QList<HI::QGravity*>& list, int width, int height) {
+	QPixmap map(width, height);
 
 	map.fill(HI::bg_color);
 
@@ -19,7 +19,7 @@ QPixmap QDrawMap::paintMap(const QList<HI::QGravity*>& list) {
 	foreach (qg, list) {
 		HI::state st = qg->getState();
 		painter->setBrush(QBrush(st.color));
-		painter->drawEllipse(st.x, st.y, 3, 3);
+		painter->drawEllipse(st.x, st.y, 4, 4);
 	}
 
 	painter->end();

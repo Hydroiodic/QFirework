@@ -18,5 +18,5 @@ private:
 	QPainter* painter = nullptr;
 
 public:
-	QPixmap paintMap(const QList<HI::QGravity*>& list);
+	QPixmap paintMap(const QList<HI::QGravity*>& list, int width, int height);
 };
