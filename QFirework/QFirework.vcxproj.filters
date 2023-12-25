@@ -52,6 +52,9 @@
     <ClCompile Include="QSubFirework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QObjectTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QGravity.h">
@@ -64,6 +67,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QSubFirework.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QObjectTimer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

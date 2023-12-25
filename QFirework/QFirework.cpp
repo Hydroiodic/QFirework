@@ -95,6 +95,7 @@ void QFirework::cleanList() {
 	for (int i = 0; i < list.size(); ++i) {
 		HI::state st = list[i]->getState();
 		if (st.left_time <= 0) {
+			delete list[i];
 			list.removeAt(i--);
 		}
 	}

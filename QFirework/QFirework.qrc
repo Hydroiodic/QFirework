@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="QFirework">
+    <qresource prefix="/QFirework">
+        <file>sounds/firework/1.wav</file>
+        <file>sounds/firework/2.wav</file>
     </qresource>
 </RCC>

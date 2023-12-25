@@ -1,6 +1,6 @@
 #include "QMainFirework.h"
 
-QMainFirework::QMainFirework(QObject* parent) 
+QMainFirework::QMainFirework(QObject* parent)
 	: QGravity(parent, HI::state()) {
 	initializeState();
 }
@@ -32,7 +32,7 @@ void QMainFirework::proceed(QList<HI::QGravity*>& list) {
 	}
 }
 
-void QMainFirework::explode(QList<HI::QGravity*>& list) {
+void QMainFirework::explode(QList<HI::QGravity*>& list) const {
 	HI::state state_to_set;
 	state_to_set.gravity = st.gravity;
 	state_to_set.color = st.color;
@@ -42,6 +42,8 @@ void QMainFirework::explode(QList<HI::QGravity*>& list) {
 
 	const double pi = 3.14;
 
+	explodeSound();
+
 	for (int i = 0; i < HI::total_num; ++i) {
 		int angle = rand() % 360;
 		state_to_set.vx = HI::v * cos(angle / pi);
@@ -49,4 +51,19 @@ void QMainFirework::explode(QList<HI::QGravity*>& list) {
 		HI::QGravity* new_fire = new QSubFirework(nullptr, state_to_set);
 		list.push_back(new_fire);
 	}
+}
+
+void QMainFirework::explodeSound() const {
+	static const int MAX_SOUNDS = 2;
+
+	// create objects and manage the memory
+	QObjectTimer* delete_timer = new QObjectTimer(nullptr, 3000);
+	QSoundEffect* sound_effect = new QSoundEffect(delete_timer);
+
+	// start to play the sound
+	sound_effect->setSource(QUrl::fromLocalFile(":/QFirework/sounds/firework/" +
+		QString::number(rand() % MAX_SOUNDS + 1) + ".wav"));
+	sound_effect->setLoopCount(1);
+	sound_effect->setVolume(1.0f);
+	sound_effect->play();
 }
