@@ -133,3 +133,8 @@ void QFirework::requestMap() {
 
 	update();
 }
+
+void QFirework::popAbout() const {
+	QMessageBox msg(QMessageBox::Information, "About", "This program is made by Hydroiodic_Acid");
+	msg.exec();
+}

@@ -6,6 +6,7 @@
 #include "ui_QFirework.h"
 #include <QKeyEvent>
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QPainter>
 #include <QPixmap>
 #include <QQueue>
@@ -51,4 +52,7 @@ private:
 
 private slots:
     void proceed();
+
+private slots:
+    void popAbout() const;
 };
