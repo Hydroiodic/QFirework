@@ -110,11 +110,14 @@ void QFirework::proceed() {
 	}
 
 	// create new object
-	static size_t count = 50;
-	if (++count >= add_firework_cycle) {
+	static size_t count = 0;
+	static size_t next = add_firework_cycle * (1. + static_cast<double>(rand()) / RAND_MAX);
+	if (++count >= next) {
 		firework = new QMainFirework(this);
 		list.push_back(firework);
+
 		count = 0;
+		next = add_firework_cycle * (1. + static_cast<double>(rand()) / RAND_MAX);
 	}
 
 	// clean objects
