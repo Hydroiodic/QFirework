@@ -18,10 +18,9 @@ namespace HI {
 
 	const int left_time_dif = 5;
 
-
 	/********** QSubFirework **********/
 
-	const int total_num = 20;
+	const int total_num = 40;
 
 	const int sub_left_time = 25;
 

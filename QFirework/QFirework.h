@@ -3,6 +3,7 @@
 #include "QDrawMap.h"
 #include "QGravity.h"
 #include "QMainFirework.h"
+#include "shape.h"
 #include "ui_QFirework.h"
 #include <QKeyEvent>
 #include <QMainWindow>
@@ -55,4 +56,5 @@ private slots:
 
 private slots:
     void popAbout() const;
+    void popHelp() const;
 };

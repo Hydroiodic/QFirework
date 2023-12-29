@@ -5,6 +5,7 @@
 #include "QGravity.h"
 #include "QObjectTimer.h"
 #include "QSubFirework.h"
+#include "shape.h"
 #include <QMainWindow>
 #include <QObject>
 #include <QSoundEffect>

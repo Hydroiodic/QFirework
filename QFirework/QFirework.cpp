@@ -68,6 +68,10 @@ void QFirework::keyPressEvent(QKeyEvent* event) {
 		update();
 		break;
 
+	case Qt::Key_S:
+		HI::cur_func = (HI::cur_func + 2) % (HI::shape_num + 1) - 1;
+		break;
+
 	default:
 		QMainWindow::keyPressEvent(event);
 	}
@@ -139,5 +143,13 @@ void QFirework::requestMap() {
 
 void QFirework::popAbout() const {
 	QMessageBox msg(QMessageBox::Information, "About", "This program is made by Hydroiodic_Acid");
+	msg.exec();
+}
+
+void QFirework::popHelp() const {
+	QMessageBox msg(QMessageBox::Information, "Help", 
+		"To play with this program, you can press \"Up\" and \"Down\" "
+		"to accelerate or slow down the speed of letting off fireworks. "
+		"You can also press \"S\" to change the shape of fireworks and \"T\" to show the text.");
 	msg.exec();
 }

@@ -45,6 +45,7 @@
     <property name="title">
      <string>Help(&amp;H)</string>
     </property>
+    <addaction name="action_help"/>
     <addaction name="action_about"/>
    </widget>
    <addaction name="menu_help"/>
@@ -53,6 +54,11 @@
   <action name="action_about">
    <property name="text">
     <string>About(&amp;A)</string>
+   </property>
+  </action>
+  <action name="action_help">
+   <property name="text">
+    <string>Help(&amp;H)</string>
    </property>
   </action>
  </widget>
@@ -77,8 +83,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>action_help</sender>
+   <signal>triggered()</signal>
+   <receiver>QFireworkClass</receiver>
+   <slot>popHelp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>popAbout()</slot>
+  <slot>popHelp()</slot>
  </slots>
 </ui>

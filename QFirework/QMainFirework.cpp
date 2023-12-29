@@ -33,6 +33,7 @@ void QMainFirework::proceed(QList<HI::QGravity*>& list) {
 }
 
 void QMainFirework::explode(QList<HI::QGravity*>& list) const {
+	// basic settings here
 	HI::state state_to_set;
 	state_to_set.gravity = st.gravity;
 	state_to_set.color = st.color;
@@ -40,14 +41,21 @@ void QMainFirework::explode(QList<HI::QGravity*>& list) const {
 	state_to_set.y = st.y;
 	state_to_set.left_time = HI::sub_left_time;
 
-	const double pi = 3.14;
-
+	// play the sound
 	explodeSound();
 
+	// choose the no of the shape function
+	int function_no;
+	if (HI::cur_func >= static_cast<unsigned long long>(HI::shape_num)) {
+		function_no = rand() % HI::shape_num;
+	}
+	else {
+		function_no = HI::cur_func;
+	}
+
+	// create sub-firework and add them to the list
 	for (int i = 0; i < HI::total_num; ++i) {
-		int angle = rand() % 360;
-		state_to_set.vx = HI::v * cos(angle / pi);
-		state_to_set.vy = HI::v * sin(angle / pi);
+		HI::shape_functions[function_no](state_to_set);
 		HI::QGravity* new_fire = new QSubFirework(nullptr, state_to_set);
 		list.push_back(new_fire);
 	}
