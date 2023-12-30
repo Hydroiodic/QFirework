@@ -45,6 +45,7 @@
     <QtInstall>6.6.1_msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets;multimedia</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
+    <QMakeCodeLines>QMAKE_CXXFLAGS_RELEASE += -O2</QMakeCodeLines>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
