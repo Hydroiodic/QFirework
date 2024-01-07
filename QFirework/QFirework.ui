@@ -41,14 +41,16 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu_help">
+   <widget class="QMenu" name="menu_functions">
     <property name="title">
-     <string>Help(&amp;H)</string>
+     <string>Functions(&amp;F)</string>
     </property>
+    <addaction name="action_change_background"/>
+    <addaction name="separator"/>
     <addaction name="action_help"/>
     <addaction name="action_about"/>
    </widget>
-   <addaction name="menu_help"/>
+   <addaction name="menu_functions"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_about">
@@ -59,6 +61,11 @@
   <action name="action_help">
    <property name="text">
     <string>Help(&amp;H)</string>
+   </property>
+  </action>
+  <action name="action_change_background">
+   <property name="text">
+    <string>Change Background(&amp;C)</string>
    </property>
   </action>
  </widget>
@@ -99,9 +106,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>action_change_background</sender>
+   <signal>triggered()</signal>
+   <receiver>QFireworkClass</receiver>
+   <slot>changeBg()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>popAbout()</slot>
   <slot>popHelp()</slot>
+  <slot>changeBg()</slot>
  </slots>
 </ui>

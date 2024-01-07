@@ -5,6 +5,7 @@
 #include "QMainFirework.h"
 #include "shape.h"
 #include "ui_QFirework.h"
+#include <QFileDialog>
 #include <QKeyEvent>
 #include <QMainWindow>
 #include <QMessageBox>
@@ -57,4 +58,5 @@ private slots:
 private slots:
     void popAbout() const;
     void popHelp() const;
+    void changeBg();
 };

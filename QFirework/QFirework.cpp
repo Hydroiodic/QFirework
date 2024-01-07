@@ -153,3 +153,21 @@ void QFirework::popHelp() const {
 		"You can also press \"S\" to change the shape of fireworks and \"T\" to show the text.");
 	msg.exec();
 }
+
+void QFirework::changeBg() {
+	QString file_path = QFileDialog::getOpenFileName(nullptr,
+		"Choose The Background", "..", "Images(*.jpg *.jpeg *.png)");
+
+	// the file window is closed
+	if (file_path == "") return;
+
+	// load the picture
+	bg_map.load(file_path);
+
+	// resize the picture to a suitable size
+	double ratio = qMax(static_cast<double>(width()) / bg_map.width(),
+		static_cast<double>(height()) / bg_map.height());
+
+	bg_map = bg_map.scaled(bg_map.width() * ratio, bg_map.height() * ratio, 
+		Qt::AspectRatioMode::KeepAspectRatio);
+}
